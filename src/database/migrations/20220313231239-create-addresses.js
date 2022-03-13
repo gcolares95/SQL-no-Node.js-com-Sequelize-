@@ -12,25 +12,21 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'users', key: 'id' },
-        onUpdate: 'CASCADE', // CASCADE -> sempre que há uma alteração no relacionamento, fará também quem usa aquela coluna como referencia
+        references: { model: 'users', key: 'id' },  // cria chave estrangeira
+        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-      },
-      name: {
+      }, 
+      zipcode: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      zipcode: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       street: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       number: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
@@ -40,7 +36,7 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
-    });
+    })
   },
 
   async down(queryInterface, Sequelize) {
